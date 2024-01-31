@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        
+        <nav>
+            <img src="images/personal/logo.png" class="logo">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>Computer Science With Management Undergraduate</p>
+            <h1>Hi, I'm <span>Joshua Anderson</span><br> From London, UK</h1>
+        </div>
+    </div>
+</div>
+
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/personal/insomnia.JPG">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p class="desc">Hello, my name is Joshua Anderson. Welcome to my web page used to showcase my knowledge, skills and experience. I am currently studying at Undergraduate level
+                    Computer Science with Management at Queen Marys University. I have a deep passion for technology which began when I built my first PC at the age of 14. Since
+                    this date I have consistently done thorough research into the technological world as well as constantly expanded on my knowledge by working on a range of 
+                    different projects and attending different course. I am always looking to learn new skills and expand on current strengths. I have a very positive outlook on life
+                    and outside of technology I enjoy Football, the Gym and working on my car.
+                </p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Web Programming</span><br>Designing and Implementing Websites</li>
+                        <li><span>Team Management</span><br>Leadership of Groups Of Employees</li>
+                        <li><span>Social Media Marketing</span><br>Creating Revenue From Social Media</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2018-2021</span><br>Landscape Gardener</li>
+                        <li><span>2022</span><br>Bar Tender with Deleware North</li>
+                        <li><span>2022</span><br>Bar Associate at JD Wetherspoons</li>
+                        <li><span>2022-2024</span><br>Team Leader at JD Wetherspoons</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2014-2019</span><br>GCSE - Beths Grammar School</li>
+                        <li><span>2019-2021</span><br>A-Levels - Beths Grammar School</li>
+                        <li><span>2021-Present</span><br>Undergraduate ITMB - Queen Marys University</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="worklist">
+            <div class="work">
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</div>
+
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link")
+        document.getElementById(tabname).classList.add("active-tab")
+
+    }
+
+</script>
+
+
+</body>
+</html>
