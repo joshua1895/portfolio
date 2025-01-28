@@ -181,43 +181,61 @@ p{
     margin-bottom: 30px;
 }
 
-/* Portfolio Container */
 .portfolio-container {
     width: 100%;
-    overflow: hidden;  /* Hide the part of the images that are off-screen */
+    overflow: hidden; /* Hide images outside the container */
     position: relative;
     padding: 20px 0;
 }
 
-/* Collage Container */
-.collage-container {
-    display: flex;
-    flex-wrap: nowrap;  /* All images will be in one horizontal line */
-    animation: scrollImages 40s linear infinite;  /* Auto-scroll effect */
-    justify-content: space-between;
-    gap: 20px;  /* Add space between the images */
+.portfolio-container::before,
+.portfolio-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background: linear-gradient(to right, #000, transparent);
+    pointer-events: none;
+    z-index: 1;
 }
 
-/* Styling for Images */
+.portfolio-container::before {
+    left: 0;
+}
+
+.portfolio-container::after {
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.collage-container {
+    display: flex;
+    gap: 20px; /* Space between images */
+    position: relative;
+    transition: none; /* No CSS transitions needed (handled in JS) */
+    will-change: transform; /* Optimize scrolling performance */
+}
+
 .collage-image {
-    max-height: 250px;  /* Adjust image height */
-    width: auto;  /* Keep aspect ratio */
+    max-height: 250px;
+    width: auto;
     border-radius: 10px;
-    object-fit: contain;  /* Ensure the image isn't cropped */
-    filter: grayscale(100%);  /* Start as greyscale */
-    transition: filter 0.5s ease;  /* Smooth transition to color */
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
 }
 
 .collage-image:hover {
-    filter: grayscale(0%);  /* Transition to full color on hover */
+    filter: grayscale(0%);
 }
 
 /* Animation for Scrolling */
 @keyframes scrollImages {
-    0% {
+    from {
         transform: translateX(0);
     }
-    100% {
-        transform: translateX(-100%);  /* Scroll all the way to the left */
+    to {
+        transform: translateX(-50%);
     }
 }
