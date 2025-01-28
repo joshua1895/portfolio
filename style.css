@@ -204,6 +204,12 @@ p{
     width: auto;  /* Keep aspect ratio */
     border-radius: 10px;
     object-fit: contain;  /* Ensure the image isn't cropped */
+    filter: grayscale(100%);  /* Start as greyscale */
+    transition: filter 0.5s ease;  /* Smooth transition to color */
+}
+
+.collage-image:hover {
+    filter: grayscale(0%);  /* Transition to full color on hover */
 }
 
 /* Animation for Scrolling */
